@@ -64,7 +64,8 @@ class PythonModel:
             raise ValueError("\nUQpy: The model script must be the name of a python script, with extension '.py'.")
 
         # Import the python module
-        python_model = __import__(self.model_script[:-3])
+        model_extension_parts = model_extension.split('.')
+        python_model = __import__(self.model_script[:-3], fromlist=model_extension_parts[1])
         self.model_object = getattr(python_model, self.model_object_name)
         # Run function which checks if the python model has the model object
         self._check_python_model(python_model)
