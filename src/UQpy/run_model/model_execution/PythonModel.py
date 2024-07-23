@@ -65,7 +65,7 @@ class PythonModel:
 
         # Import the python module
         model_extension_parts = model_extension.split('.')
-        python_model = __import__(self.model_script[:-3], fromlist=model_extension_parts[1])
+        python_model = __import__(self.model_script[:-3], fromlist=model_extension_parts[-2])
         self.model_object = getattr(python_model, self.model_object_name)
         # Run function which checks if the python model has the model object
         self._check_python_model(python_model)
