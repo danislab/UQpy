@@ -205,7 +205,7 @@ class RunModel:
                   f"UQpy.run_model.model_execution.ParallelExecution {self.n_existing_simulations} "
                   f"{self.n_new_simulations}")
             
-            os.system(f"mpirun python -m "
+            os.system(f"mpirun -np 4 python -m "
                       f"UQpy.run_model.model_execution.ParallelExecution {self.n_existing_simulations} "
                       f"{self.n_new_simulations}")
 
