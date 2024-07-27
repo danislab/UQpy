@@ -201,7 +201,7 @@ class RunModel:
             pickle.dump(self.samples, filehandle)
             
         if self.run_type is RunType.LOCAL:        
-            print(f"mpirun python -m "
+            print(f"mpirun -np 4 python -m "
                   f"UQpy.run_model.model_execution.ParallelExecution {self.n_existing_simulations} "
                   f"{self.n_new_simulations}")
             
